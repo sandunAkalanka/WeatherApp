@@ -1,11 +1,11 @@
 #Import Tkinter modules 
-from tkinter import *
+import tkinter as tk
 
 import requests
 from bs4 import BeautifulSoup
 
 #Root window    
-root = Tk()
+root = tk.Tk()
 
 #Specify root window attributes 
 root.title("Weather App")
@@ -13,31 +13,19 @@ root.geometry('300x400')
 
 #Widgets    
 
-#Label
-lbl1 = Label(root , text = "Welcome to Weather App!")
-lbl1.grid(row = 0)
+#Labels
 
-lbl2 = Label(root , text = "Enter a City: ")
-lbl2.grid(row = 1)
-
-lbl3 = Label(root , text = "")
-lbl3.grid(row = 4)
-
-lbl4 = Label(root , text = "")
-lbl4.grid(row = 5)
-
-lbl5 = Label(root , text = "")
-lbl5.grid(row = 6)
-
-lbl6 = Label(root , text = "")
-lbl6.grid(row = 7)
-
-lbl7 = Label(root , text = "")
-lbl7.grid(row = 8)
+lbl1 = tk.Label(root , text = "Welcome to Weather App!")
+lbl2 = tk.Label(root , text = "Enter a City: ")
+lbl3 = tk.Label(root , text = "")
+lbl4 = tk.Label(root , text = "")
+lbl5 = tk.Label(root , text = "")
+lbl6 = tk.Label(root , text = "")
+lbl7 = tk.Label(root , text = "" )
+lbl8 = tk.Label(root , text = "" , wraplength = 200)
 
 #Entry  
-ent = Entry(root , width = 10)
-ent.grid(row = 2)
+ent = tk.Entry(root , width = 10)
 
 #Function   
 def clicked():
@@ -71,16 +59,28 @@ def clicked():
     lbl4text = "Temperature : " + temp
     lbl5text = "Time : " + time
     lbl6text = "Sky Description : " + sky
-    lbl7text = "Other Data : " + other_data
+    lbl7text = "Other Data : "
+    lbl8text = other_data
     lbl3.configure(text = lbl3text)
     lbl4.configure(text = lbl4text)
     lbl5.configure(text = lbl5text)
     lbl6.configure(text = lbl6text)
     lbl7.configure(text = lbl7text)
+    lbl8.configure(text = lbl8text)
 
 #Button 
-btn = Button(root , text= "Get Weather" , command = clicked)
-btn.grid(row = 3)
+btn = tk.Button(root , text= "Get Weather" , command = clicked)
+
+lbl1.pack()
+lbl2.pack()
+ent.pack()
+btn.pack()
+lbl3.pack()
+lbl4.pack()
+lbl5.pack()
+lbl6.pack()
+lbl7.pack()
+lbl8.pack()
 
 #Execute    
 root.mainloop()
